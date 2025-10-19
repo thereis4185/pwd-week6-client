@@ -10,7 +10,7 @@ const getEnvironmentConfig = () => {
       clientUrl: 'http://localhost:5173',
     },
     production: {
-      apiUrl: import.meta.env.VITE_API_URL || 'https://pwd-week6-server.onrender.com',
+      apiUrl: import.meta.env.VITE_API_URL || 'https://pwd-week5-thereis4185.onrender.com.com',
       clientUrl: import.meta.env.VITE_CLIENT_URL || 'https://pwd-week6-client.vercel.app',
     }
   };
