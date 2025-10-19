@@ -40,7 +40,6 @@ const queryClient = new QueryClient({
   },
 });
 
-
 function App() {
   // 앱 시작 시 연결 테스트
   useEffect(() => {

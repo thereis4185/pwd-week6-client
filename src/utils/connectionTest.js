@@ -1,17 +1,31 @@
 // 연결 테스트 유틸리티
 import { apiUrl } from '../config/environment';
 
-// src/utils/connectionTest.js
 export const testConnection = async () => {
   try {
-    const response = await fetch(`${apiUrl}/health`);
-    if (response.ok) {
-      console.log('✅ 서버 연결 성공');
-    } else {
-      console.warn('⚠️ 서버 연결 실패');
+    console.log('🔍 Testing connection to:', apiUrl);
+    
+    const response = await fetch(`${apiUrl}/health`, {
+      method: 'GET',
+      mode: 'cors',
+      credentials: 'include',
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
+    
+    const data = await response.json();
+    console.log('✅ Connection successful:', data);
+    return { success: true, data };
+    
   } catch (error) {
-    console.error('❌ 서버 연결 오류:', error);
+    console.error('❌ Connection failed:', error);
+    return { 
+      success: false, 
+      error: error.message,
+      apiUrl 
+    };
   }
 };
 

@@ -166,5 +166,3 @@ function SubmissionsPage() {
 }
 
 export default SubmissionsPage;
-
-
