@@ -31,10 +31,10 @@ const getEnvironmentConfig = () => {
 
 const env = getEnvironmentConfig();
 
-export default env;
-
 // 개별 export
-export const { apiUrl, clientUrl } = env;
+export const apiUrl = env.apiUrl;
+export const clientUrl = env.clientUrl;
+export default env;
 
 // 디버깅용
 console.log('🌍 Environment Config:', {
